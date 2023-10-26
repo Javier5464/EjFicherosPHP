@@ -23,11 +23,11 @@ $totalSizeLimit = 300 * 1024;
 $totalSize;
 
 if (isset($_FILES['files'])) {
-    foreach ($_FILES['files']['name'] as $key => $fileName) {
+    foreach ($_FILES['files']['name'] as $k => $fileName) {
         $fileSize = $_FILES['files']['size'][$key];
-        $info = pathinfo($fileName);
+        $extension = pathinfo($fileName);
 
-        if ($info['extension'] !== "jpg" && $info['extension'] !== "png") {
+        if ($extension['extension'] !== "jpg" && $extension['extension'] !== "png") {
             array_push($errors, "El archivo $fileName no es ni .jpg ni .png");
             $error = true;
         }
